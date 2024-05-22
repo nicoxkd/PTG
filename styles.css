@@ -1,0 +1,80 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+    /* Cambiar según preferencias */
+    color: white;
+    /* Cambiar según preferencias */
+}
+
+.centered-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    /* Cambiar según preferencias */
+    z-index: 1;
+}
+
+#changing-text {
+    animation: changeColor 5s infinite alternate;
+}
+
+@keyframes changeColor {
+    0% {
+        color: red;
+    }
+
+    25% {
+        color: blue;
+    }
+
+    50% {
+        color: green;
+    }
+
+    75% {
+        color: orange;
+    }
+
+    100% {
+        color: purple;
+    }
+}
+
+/* Estilos de las estrellas */
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    /* Cambiar según preferencias */
+    border-radius: 50%;
+}
+
+/* Animación de movimiento de las estrellas */
+@keyframes moveStar {
+    from {
+        transform: translateY(0) translateX(0);
+    }
+
+    to {
+        transform: translateY(100vh) translateX(100vw);
+    }
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    /* Cambiar según preferencias */
+    border-radius: 50%;
+    animation: moveStar 10s linear infinite;
+    /* Modificación aquí */
+}
