@@ -1,26 +1,11 @@
-// Opcional: Cambiar el texto cada cierto tiempo
-const textArray = ["Pito Gang"];
-let index = 0;
-
-function changeText() {
-    document.getElementById('changing-text').textContent = textArray[index];
-    index = (index + 1) % textArray.length;
+/* Función para abrir el menú */
+function openNav() {
+    document.getElementById("sidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
 }
 
-setInterval(changeText, 3000); // Cambiar cada 3 segundos
-
-// Función para crear estrellas de manera aleatoria
-function createStars() {
-    const starsContainer = document.getElementById('stars-container');
-
-    for (let i = 0; i < 200; i++) { // Aumentamos el número de estrellas a 200
-        const star = document.createElement('div');
-        star.classList.add('star');
-        star.style.top = `${Math.random() * 100}%`;
-        star.style.left = `${Math.random() * 100}%`;
-        star.style.animationDuration = `${Math.random() * 5 + 2}s`; // Duración de la animación
-        starsContainer.appendChild(star);
-    }
+/* Función para cerrar el menú */
+function closeNav() {
+    document.getElementById("sidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
 }
-
-createStars();

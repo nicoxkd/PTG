@@ -1,80 +1,240 @@
-body,
-html {
+/* Variables para cambiar colores fácilmente */
+:root {
+    --sidebar-bg-color: #333;
+    /* Color de fondo del menú */
+    --sidebar-hover-color: #575757;
+    /* Color al pasar el mouse sobre los enlaces */
+    --sidebar-text-color: #fff;
+    /* Color del texto en el menú */
+    --button-bg-color: #333;
+    /* Color del botón para abrir el menú */
+    --button-hover-color: #444;
+    /* Color del botón al pasar el mouse */
+    --main-text-color: #000;
+    /* Color del texto en el contenido principal */
+    --background-img: url('../fondo.png');
+    /* Imagen de fondo de la página */
+    --sidebar-background-img: url('../fondo-lateral.png');
+    /* Imagen de fondo de la barra lateral */
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    background-color: black;
-    /* Cambiar según preferencias */
-    color: white;
-    /* Cambiar según preferencias */
+    color: var(--main-text-color);
+    background-image: var(--background-img);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
-.centered-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+h2 {
+    margin-top: 20px;
     text-align: center;
-    width: 100%;
-    font-family: Arial, sans-serif;
-    /* Cambiar según preferencias */
+}
+
+p {
+    text-align: center;
+    font-size: 18px;
+}
+
+/* Estilos del menú lateral (sidebar) */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
     z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: var(--sidebar-bg-color);
+    background-image: var(--sidebar-background-img);
+    /* Imagen de fondo de la barra lateral */
+    background-size: cover;
+    /* Hace que la imagen cubra todo el espacio de la barra */
+    background-position: center;
+    /* Centra la imagen */
+    background-repeat: no-repeat;
+    /* Evita que la imagen se repita */
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
 }
 
-#changing-text {
-    animation: changeColor 5s infinite alternate;
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #9e1746;
+    /* Color del texto del enlace */
+    display: block;
+    transition: 0.3s;
 }
 
-@keyframes changeColor {
-    0% {
-        color: red;
-    }
-
-    25% {
-        color: blue;
-    }
-
-    50% {
-        color: green;
-    }
-
-    75% {
-        color: orange;
-    }
-
-    100% {
-        color: purple;
-    }
+.sidebar a:hover {
+    background-color: #5723f7;
+    /* Color al pasar el mouse sobre los enlaces */
 }
 
-/* Estilos de las estrellas */
-.star {
+.sidebar .closebtn {
     position: absolute;
-    width: 2px;
-    height: 2px;
-    background-color: white;
-    /* Cambiar según preferencias */
-    border-radius: 50%;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
 }
 
-/* Animación de movimiento de las estrellas */
-@keyframes moveStar {
-    from {
-        transform: translateY(0) translateX(0);
-    }
-
-    to {
-        transform: translateY(100vh) translateX(100vw);
-    }
-}
-
-.star {
+/* Estilo del botón que abre el menú */
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: var(--button-bg-color);
+    color: var(--sidebar-text-color);
+    padding: 10px 15px;
+    border: none;
     position: absolute;
-    width: 2px;
-    height: 2px;
-    background-color: white;
-    /* Cambiar según preferencias */
-    border-radius: 50%;
-    animation: moveStar 10s linear infinite;
-    /* Modificación aquí */
+    top: 20px;
+    left: 20px;
+    transition: 0.3s;
+}
+
+.openbtn:hover {
+    background-color: var(--button-hover-color);
+}
+
+/* Contenido principal */
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+/* Sección de álbumes */
+.gangas-container {
+    display: grid;
+    grid-template-columns: 1fr minmax(200px, 1fr) 1fr;
+    /* 3 columnas con espacio flexible */
+    gap: 30px;
+    /* Espacio entre los álbumes */
+    padding: 40px;
+    justify-items: center;
+    /* Centrar los álbumes horizontalmente */
+}
+
+.ganga {
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    /* Sombra más pronunciada */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 300px;
+    /* Tamaño máximo para cada álbum */
+    margin: 0;
+    /* Asegura que no haya margen por defecto */
+}
+
+.ganga img {
+    width: 100%;
+    /* Imagen más grande */
+    height: auto;
+    display: block;
+}
+
+.ganga h3 {
+    margin: 15px 0;
+    font-size: 24px;
+    /* Tamaño del texto más grande */
+    color: #fff;
+    /* Texto blanco debajo del álbum */
+}
+
+.ganga:hover {
+    transform: scale(1.1);
+    /* Efecto de hover más pronunciado */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.ganga a {
+    text-decoration: none;
+    color: inherit;
+}
+
+@media (max-width: 900px) {
+    .ganga-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columnas en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 600px) {
+    .ganga-container {
+        grid-template-columns: 1fr;
+        /* 1 columna en pantallas móviles */
+    }
+}
+
+/* Sección de canciones */
+.songs-container {
+    display: grid;
+    grid-template-columns: 1fr minmax(200px, 1fr) 1fr;
+    /* 3 columnas con espacio flexible */
+    gap: 30px;
+    /* Espacio entre los álbumes */
+    padding: 40px;
+    justify-items: center;
+    /* Centrar los álbumes horizontalmente */
+}
+
+.songs {
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    /* Sombra más pronunciada */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 300px;
+    /* Tamaño máximo para cada álbum */
+    margin: 0;
+    /* Asegura que no haya margen por defecto */
+}
+
+.songs img {
+    width: 100%;
+    /* Imagen más grande */
+    height: auto;
+    display: block;
+}
+
+.songs h3 {
+    margin: 15px 0;
+    font-size: 24px;
+    /* Tamaño del texto más grande */
+    color: #fff;
+    /* Texto blanco debajo del álbum */
+}
+
+.songs:hover {
+    transform: scale(1.1);
+    /* Efecto de hover más pronunciado */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.songs a {
+    text-decoration: none;
+    color: inherit;
+}
+
+@media (max-width: 900px) {
+    .songs-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columnas en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 600px) {
+    .songs-container {
+        grid-template-columns: 1fr;
+        /* 1 columna en pantallas móviles */
+    }
 }

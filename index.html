@@ -5,15 +5,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pito Gang</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <div class="centered-text">
-        <h1 id="changing-text">Pito Gang</h1>
+    <div id="sidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="index.html"> Nosotros </a>
+        <a href=""> </a>
+        <a href=""> </a>
+        <a href=""> </a>
     </div>
-    <div id="stars-container"></div>
-    <script src="script.js"></script>
+
+    <div id="main">
+        <button class="openbtn" onclick="openNav()">☰ Abrir Menú</button>
+        <h2></h2>
+        <p>
+        </p>
+
+        <!-- HTML de la ganga -->
+        <div class="gangas-container">
+            <!-- LINEA 1 -->
+            <div class="ganga">
+                <a href="">
+                    <img src="./images/nicoxkd.png" alt="Nico">
+                    <h3> Nico </h3>
+                </a>
+            </div>
+            <div class="ganga">
+                <a href="">
+                    <img src="./images/pauuul.jpg" alt="Paul">
+                    <h3> Paul </h3>
+                </a>
+            </div>
+            <div class="ganga">
+                <a href="./gang/gonsalo.html">
+                    <img src="./images/gonsforlo.png" alt="Gonsalo">
+                    <h3> Gonzalo </h3>
+                </a>
+            </div>
+            <!-- LINEA 2 -->
+            <div class="ganga">
+                <a href="">
+                    <img src="" alt="">
+                    <h3> Jaime </h3>
+                </a>
+            </div>
+            <div class="ganga">
+                <a href="">
+                    <img src="" alt="">
+                    <h3> Angi </h3>
+                </a>
+            </div>
+            <div class="ganga">
+                <a href="">
+                    <img src="" alt="">
+                    <h3> Monso </h3>
+                </a>
+            </div>
+            <!-- LINEA 3 -->
+            <div class="ganga">
+                <a href="">
+                    <img src="" alt="">
+                    <h3> Amilkar </h3>
+                </a>
+            </div>
+            <div class="ganga">
+                <a href="">
+                    <img src="" alt="">
+                    <h3></h3>
+                </a>
+            </div>
+            <div class="ganga">
+                <a href="">
+                    <img src="" alt="">
+                    <h3></h3>
+                </a>
+            </div>
+        </div>
+
+
+        <script src="script.js"></script>
 </body>
 
 </html>
